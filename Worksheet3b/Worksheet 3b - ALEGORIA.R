@@ -1,0 +1,98 @@
+#-------------------------------------------------------------------------------
+#                               Worksheet 3
+#-------------------------------------------------------------------------------
+
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+
+#1. Create a data frame using the table below.
+
+# a.Write the codes.
+
+Respondents <- c(1:20)
+Sex <- c(2,2,1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1,2)
+Fathers_Occupation <- c(1,3,3,3,1,2,3,1,1,1,3,2,1,3,3,1,3,1,2,1)
+Persons_at_Home <- c(5,7,3,8,5,9,6,7,8,4,7,5,4,7,8,8,3,11,7,6) 
+Siblings_at_School <- c(6,4,4,1,2,1,5,3,1,2,3,2,5,5,2,1,2,5,3,2)
+Types_of_Houses <- c(1,2,3,1,1,3,3,1,2,3,2,3,2,2,3,3,3,3,3,2)
+
+dataf <- data.frame(Respondents,Sex,Fathers_Occupation,Persons_at_Home,
+                     Siblings_at_School,Types_of_Houses)
+dataf
+
+
+#b.Describe the data. Get the structure or the summary of the data.
+
+#   As shown in the given table, there are 20 respondents, and their given   
+#   data in numerical form that can be translated only using the legend below.
+
+    summary(dframe)
+
+
+#c. Is the mean number of siblings attending is 5?
+
+# Answer: No, the result of the summary shows that 
+#         the mean of siblings attending is 2.95.
+
+
+#d. Extract the 1st two rows and then all the columns using the subsetting 
+#   functions. Write the codes and its output.
+
+subsetdata <- subset(dframe[1:2, 1:6])
+subsetdata
+
+
+#e. Extract 3rd and 5th row with 2nd and 4th column. Write the codes and its
+#result.
+
+extractdata <- subset(dframe[c(3,5),c(2,4)])
+extractdata
+
+
+#f. Select the variable types of houses then store the vector that results as 
+#   types_houses. Write the codes.
+
+variabletypes <- dataf$Persons_at_Home
+
+type_houses <- variabletypes
+type_houses
+
+
+#g. Select only all Males respondent that their father occupation was farmer. 
+#Write the codes and its output.
+
+Maledata <- subset(dataf[c(1:20), c(2,3)])
+Maledata
+
+Male <- Maledata[dataf$Fathers_Occupation == '1',]
+Male
+
+
+#h. Select only all females respondent that have greater than or equal to 5 number
+#of siblings attending school. Write the codes and its outputs.
+
+Fmale <- subset(dataf[c(1:20), c(2,5)])
+Fmale
+
+Female <- Fmale[dataf$Siblings_at_School >= '5',]
+Female
+
+
+#2. Write a R program to create an empty data frame. Using the following codes:
+df = data.frame(Ints=integer(),
+                Doubles=double(), Characters=character(),
+                Logicals=logical(),
+                Factors=factor(),
+                stringsAsFactors=FALSE)
+print("Structure of the empty dataframe:")
+print(str(df))
+
+#a. Describe the results.
+
+
+#3. Interpret the graph.
+
+#   As shown in the graph, the sentiment of tweets per day that ascend the 
+#   most is the negative sentiment. 
+
