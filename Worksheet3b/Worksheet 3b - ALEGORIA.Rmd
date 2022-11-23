@@ -7,6 +7,7 @@ output:
   html_document: default
 ---
 
+/hfill/break
 ```{r}
 #1. Create a data frame using the table below.
 
